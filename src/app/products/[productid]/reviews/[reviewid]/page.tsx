@@ -13,6 +13,14 @@ export default function ProductReview({
       '1': 'Super fast and lightweight.',
       '2': 'Screen quality is amazing.',
     },
+    tablet: {
+      '1': 'Perfect for reading and browsing.',
+      '2': 'Stylus support is a game changer.',
+    },
+    watch: {
+      '1': 'Stylish and functional.',
+      '2': 'Health tracking features are excellent.',
+    },
     // Add more products and reviews as needed
   };
   const review = reviewsData[productid]?.[reviewid] || 'Review not found.';

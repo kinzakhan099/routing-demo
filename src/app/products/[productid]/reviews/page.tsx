@@ -3,24 +3,45 @@ export default function Reviews({
 }: { 
   params: { productid: string } 
 }) {
-  const reviews: { [key: string]: string[] } = {
-    "1": ["Great product!", "Really liked the quality."],
-    "2": ["Not worth the price.", "Broke after 2 days."],
-    "3": ["Amazing! Would buy again.", "5 stars ⭐⭐⭐⭐⭐"],
-    phone: ["Product Review for Product phone and Review 1"],
-    // Add more products and their reviews as needed
+  const reviewsData: Record<string, Record<string, string>> = {
+    phone: {
+      '1': 'Great phone, very satisfied!',
+      '2': 'Battery life could be better.',
+    },
+    laptop: {
+      '1': 'Super fast and lightweight.',
+      '2': 'Screen quality is amazing.',
+    },
+    tablet: {
+      '1': 'Perfect for reading and browsing.',
+      '2': 'Stylus support is a game changer.',
+    },
+    watch: {
+      '1': 'Stylish and functional.',
+      '2': 'Health tracking features are excellent.',
+    },
+    // Add more products and reviews as needed
   };
 
-  const productReviews = reviews[params.productid] || ["No reviews yet."];
+  const productReviewsObj = reviewsData[params.productid];
+  const productReviews = productReviewsObj
+    ? Object.entries(productReviewsObj)
+    : [];
 
   return (
     <div>
       <h1>Reviews for Product {params.productid}</h1>
-      <ul>
-        {productReviews.map((review, index) => (
-          <li key={index}>{review} </li>
-        ))}
-      </ul>
+      {productReviews.length > 0 ? (
+        <ul>
+          {productReviews.map(([reviewid, review]) => (
+            <li key={reviewid}>
+              <strong>Review {reviewid}:</strong> {review}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No reviews yet.</p>
+      )}
     </div>
   );
 }
