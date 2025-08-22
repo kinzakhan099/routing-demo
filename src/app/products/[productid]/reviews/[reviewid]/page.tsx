@@ -1,9 +1,15 @@
+import { notFound } from "next/navigation";
+
 export default function ProductReview({
   params,
 }: {
   params: { productid: string; reviewid: string };
 }) {
   const { productid, reviewid } = params;
+  // Simulated review data
+  if (parseInt(reviewid) > 1000) {
+    notFound();
+  }
   const reviewsData: Record<string, Record<string, string>> = {
     phone: {
       '1': 'Great phone, very satisfied!',
