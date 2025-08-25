@@ -25,6 +25,7 @@ export default function Home() {
         <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition">
           Contact
         </Link>
+        
       </nav>
 
       {/* Article Language Buttons */}
