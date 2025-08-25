@@ -2,57 +2,47 @@
 import React from "react";
 import Link from "next/link";
 
-export default function Login() {
+export default function ResetPassword() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-8 border border-gray-200">
         {/* Heading */}
         <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Login
+          Reset Your Password
         </h1>
 
         {/* Form */}
         <form className="space-y-5">
-          {/* Email */}
+          {/* New Password */}
           <div>
             <label
-              htmlFor="email"
+              htmlFor="newPassword"
               className="block text-sm font-medium text-gray-600 mb-1"
             >
-              Email Address
+              New Password
             </label>
             <input
-              type="email"
-              id="email"
-              placeholder="Enter your email"
+              type="password"
+              id="newPassword"
+              placeholder="Enter new password"
               className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
             />
           </div>
 
-          {/* Password */}
+          {/* Confirm Password */}
           <div>
             <label
-              htmlFor="password"
+              htmlFor="confirmPassword"
               className="block text-sm font-medium text-gray-600 mb-1"
             >
-              Password
+              Confirm Password
             </label>
             <input
               type="password"
-              id="password"
-              placeholder="Enter your password"
+              id="confirmPassword"
+              placeholder="Re-enter new password"
               className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
             />
-
-            {/* Forgot Password link */}
-            <div className="text-right mt-2">
-              <Link
-                href="/forgot-password"
-                className="text-sm text-blue-600 hover:underline"
-              >
-                Forgot Password?
-              </Link>
-            </div>
           </div>
 
           {/* Button */}
@@ -60,15 +50,15 @@ export default function Login() {
             type="submit"
             className="w-full py-2 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition"
           >
-            Login
+            Reset Password
           </button>
         </form>
 
-        {/* Footer */}
+        {/* Back to Login */}
         <p className="text-sm text-gray-600 text-center mt-6">
-          Don’t have an account?{" "}
-          <Link href="/register" className="text-blue-600 hover:underline">
-            Sign up
+          Remembered your password?{" "}
+          <Link href="/login" className="text-blue-600 hover:underline">
+            Back to Login
           </Link>
         </p>
       </div>
